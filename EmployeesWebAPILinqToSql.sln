@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30503.244
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EmployeesWebAPILinqToSql", "EmployeesWebAPILinqToSql\EmployeesWebAPILinqToSql.csproj", "{C8003C0A-4779-4529-BEC3-3A4D1D09823C}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{C8003C0A-4779-4529-BEC3-3A4D1D09823C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C8003C0A-4779-4529-BEC3-3A4D1D09823C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C8003C0A-4779-4529-BEC3-3A4D1D09823C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C8003C0A-4779-4529-BEC3-3A4D1D09823C}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {093465BD-4195-4528-8803-1F993360D658}
+	EndGlobalSection
+EndGlobal
