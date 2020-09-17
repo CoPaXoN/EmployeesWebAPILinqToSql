@@ -9,7 +9,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace EmployeesWebAPILinqToSql
+namespace EmployeesWebAPILinqToSql.Models
 {
 	using System.Data.Linq;
 	using System.Data.Linq.Mapping;

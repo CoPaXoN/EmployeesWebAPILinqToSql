@@ -160,7 +160,7 @@
     <Compile Include="Areas\HelpPage\XmlDocumentationProvider.cs" />
     <Compile Include="Controllers\EmployeesController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
-    <Compile Include="EmployeesDataClasses.designer.cs">
+    <Compile Include="Models\EmployeesDataClasses.designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>EmployeesDataClasses.dbml</DependentUpon>
@@ -201,12 +201,12 @@
     <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\CollectionModelDescription.cshtml" />
     <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\ApiGroup.cshtml" />
     <Content Include="Areas\HelpPage\Views\Help\Api.cshtml" />
-    <Content Include="EmployeesDataClasses.dbml">
+    <Content Include="Models\EmployeesDataClasses.dbml">
       <Generator>MSLinqToSQLGenerator</Generator>
       <LastGenOutput>EmployeesDataClasses.designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
     </Content>
-    <None Include="EmployeesDataClasses.dbml.layout">
+    <None Include="Models\EmployeesDataClasses.dbml.layout">
       <DependentUpon>EmployeesDataClasses.dbml</DependentUpon>
     </None>
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
@@ -232,7 +232,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />

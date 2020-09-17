@@ -5,9 +5,13 @@ using System.Net;
 using System.Net.Http;
 using System.Web.Http;
 using System.Windows.Forms;
+using EmployeesWebAPILinqToSql.Models;
 
 namespace EmployeesWebAPILinqToSql.Controllers
 {
+    /// <summary>
+    /// Employee's controller 
+    /// </summary>
     public class EmployeesController : ApiController
     {
         EmployeesDataClassesDataContext employeesDB = new EmployeesDataClassesDataContext();
