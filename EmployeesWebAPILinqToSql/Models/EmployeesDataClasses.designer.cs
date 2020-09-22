@@ -95,6 +95,8 @@ namespace EmployeesWebAPILinqToSql.Models
 		
 		private string _Name;
 		
+		private EntitySet<Employee> _Employees;
+		
     #region Extensibility Method Definitions
     partial void OnLoaded();
     partial void OnValidate(System.Data.Linq.ChangeAction action);
@@ -107,6 +109,7 @@ namespace EmployeesWebAPILinqToSql.Models
 		
 		public Department()
 		{
+			this._Employees = new EntitySet<Employee>(new Action<Employee>(this.attach_Employees), new Action<Employee>(this.detach_Employees));
 			OnCreated();
 		}
 		
@@ -150,6 +153,19 @@ namespace EmployeesWebAPILinqToSql.Models
 			}
 		}
 		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Department_Employee", Storage="_Employees", ThisKey="ID", OtherKey="departmentID")]
+		public EntitySet<Employee> Employees
+		{
+			get
+			{
+				return this._Employees;
+			}
+			set
+			{
+				this._Employees.Assign(value);
+			}
+		}
+		
 		public event PropertyChangingEventHandler PropertyChanging;
 		
 		public event PropertyChangedEventHandler PropertyChanged;
@@ -169,6 +185,18 @@ namespace EmployeesWebAPILinqToSql.Models
 				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
 			}
 		}
+		
+		private void attach_Employees(Employee entity)
+		{
+			this.SendPropertyChanging();
+			entity.Department = this;
+		}
+		
+		private void detach_Employees(Employee entity)
+		{
+			this.SendPropertyChanging();
+			entity.Department = null;
+		}
 	}
 	
 	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Employees")]
@@ -182,6 +210,8 @@ namespace EmployeesWebAPILinqToSql.Models
 		private string _Name;
 		
 		private System.Nullable<int> _departmentID;
+		
+		private EntityRef<Department> _Department;
 		
     #region Extensibility Method Definitions
     partial void OnLoaded();
@@ -197,6 +227,7 @@ namespace EmployeesWebAPILinqToSql.Models
 		
 		public Employee()
 		{
+			this._Department = default(EntityRef<Department>);
 			OnCreated();
 		}
 		
@@ -251,11 +282,49 @@ namespace EmployeesWebAPILinqToSql.Models
 			{
 				if ((this._departmentID != value))
 				{
+					if (this._Department.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
 					this.OndepartmentIDChanging(value);
 					this.SendPropertyChanging();
 					this._departmentID = value;
 					this.SendPropertyChanged("departmentID");
 					this.OndepartmentIDChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Department_Employee", Storage="_Department", ThisKey="departmentID", OtherKey="ID", IsForeignKey=true)]
+		public Department Department
+		{
+			get
+			{
+				return this._Department.Entity;
+			}
+			set
+			{
+				Department previousValue = this._Department.Entity;
+				if (((previousValue != value) 
+							|| (this._Department.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._Department.Entity = null;
+						previousValue.Employees.Remove(this);
+					}
+					this._Department.Entity = value;
+					if ((value != null))
+					{
+						value.Employees.Add(this);
+						this._departmentID = value.ID;
+					}
+					else
+					{
+						this._departmentID = default(Nullable<int>);
+					}
+					this.SendPropertyChanged("Department");
 				}
 			}
 		}

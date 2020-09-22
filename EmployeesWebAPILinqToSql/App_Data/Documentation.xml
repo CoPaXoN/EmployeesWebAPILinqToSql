@@ -481,6 +481,11 @@
             </summary>
             <param name="documentPath">The physical path to XML document.</param>
         </member>
+        <member name="T:EmployeesWebAPILinqToSql.Controllers.EmployeesController">
+            <summary>
+            Employee's controller 
+            </summary>
+        </member>
         <member name="M:EmployeesWebAPILinqToSql.Controllers.EmployeesController.Get">
             <summary>
             Gets top 20 employees
@@ -494,13 +499,13 @@
             <param name="id"></param>
             <returns></returns>
         </member>
-        <member name="M:EmployeesWebAPILinqToSql.Controllers.EmployeesController.Post(EmployeesWebAPILinqToSql.Employee)">
+        <member name="M:EmployeesWebAPILinqToSql.Controllers.EmployeesController.Post(EmployeesWebAPILinqToSql.Models.Employee)">
             <summary>
             Inserts one employee
             </summary>
             <param name="employee"></param>
         </member>
-        <member name="M:EmployeesWebAPILinqToSql.Controllers.EmployeesController.Put(System.Int32,EmployeesWebAPILinqToSql.Employee)">
+        <member name="M:EmployeesWebAPILinqToSql.Controllers.EmployeesController.Put(System.Int32,EmployeesWebAPILinqToSql.Models.Employee)">
             <summary>
             update one employee with same id
             </summary>

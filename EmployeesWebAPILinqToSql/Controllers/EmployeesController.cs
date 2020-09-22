@@ -14,7 +14,7 @@ namespace EmployeesWebAPILinqToSql.Controllers
     /// </summary>
     public class EmployeesController : ApiController
     {
-        EmployeesDataClassesDataContext employeesDB = new EmployeesDataClassesDataContext();
+        EmployeesDataClassesDataContext db = new EmployeesDataClassesDataContext();
         // GET: api/Employees
         /// <summary>
         /// Gets top 20 employees
@@ -22,8 +22,15 @@ namespace EmployeesWebAPILinqToSql.Controllers
         /// <returns>list of employees</returns>
         public IEnumerable<Employee> Get()
         {
-            List<Employee> employees = employeesDB.Employees.Take(20).ToList();
-            return employees;
+            try
+            {
+                return db.Employees.Take(20).ToList();
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+
         }
         /// <summary>
         /// Gets one employee by id
@@ -33,8 +40,15 @@ namespace EmployeesWebAPILinqToSql.Controllers
         // GET: api/Employees/5
         public Employee Get(int id)
         {
-            return employeesDB.Employees.Where(p => p.ID == id).First();
-        }
+            try
+            {
+                return db.Employees.Where(p => p.ID == id).First();
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+}
 
         /// <summary>
         /// Inserts one employee
@@ -45,12 +59,12 @@ namespace EmployeesWebAPILinqToSql.Controllers
         {
             try
             {
-                employeesDB.Employees.InsertOnSubmit(employee);
-                employeesDB.SubmitChanges();
+                db.Employees.InsertOnSubmit(employee);
+                db.SubmitChanges();
             }
             catch (Exception e)
             {
-                MessageBox.Show(e.Message);
+                throw e;
             }
         }
         /// <summary>
@@ -63,14 +77,14 @@ namespace EmployeesWebAPILinqToSql.Controllers
         {
             try
             {
-                Employee employee = employeesDB.Employees.Where(p => p.ID == id).First();
+                Employee employee = db.Employees.Where(p => p.ID == id).First();
                 employee.Name = newEmployee.Name;
                 employee.departmentID = newEmployee.departmentID;
-                employeesDB.SubmitChanges();
+                db.SubmitChanges();
             }
             catch (Exception e)
             {
-                MessageBox.Show(e.Message);
+                throw e;
             }
 
         }
@@ -83,13 +97,13 @@ namespace EmployeesWebAPILinqToSql.Controllers
         {
             try
             {
-                Employee employee = employeesDB.Employees.Where(p => p.ID == id).First();
-                employeesDB.Employees.DeleteOnSubmit(employee);
-                employeesDB.SubmitChanges();
+                Employee employee = db.Employees.Where(p => p.ID == id).First();
+                db.Employees.DeleteOnSubmit(employee);
+                db.SubmitChanges();
             }
             catch (Exception e)
             {
-                MessageBox.Show(e.Message);
+                throw e;
             }
         }
     }

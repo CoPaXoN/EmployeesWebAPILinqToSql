@@ -2,17 +2,24 @@
 <ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 11, 8.5" name="EmployeesDataClasses">
   <DataContextMoniker Name="/EmployeesDataClassesDataContext" />
   <nestedChildShapes>
-    <classShape Id="eb788cbd-d49a-4f31-a936-74a9d64a8970" absoluteBounds="4.375, 1.375, 2, 1.1939925130208333">
+    <classShape Id="dd602a46-f639-4fe9-a7fc-1a95776e3df5" absoluteBounds="5.5, 1.25, 2, 1.1939925130208333">
       <DataClassMoniker Name="/EmployeesDataClassesDataContext/Department" />
       <nestedChildShapes>
-        <elementListCompartment Id="62e194b2-bcfa-4931-83b6-6bb1226cac64" absoluteBounds="4.39, 1.835, 1.9700000000000002, 0.63399251302083326" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+        <elementListCompartment Id="c1d0c88a-fbf8-4001-8337-8f19c475449e" absoluteBounds="5.515, 1.71, 1.9700000000000002, 0.63399251302083326" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <classShape Id="981b844f-a736-4905-a50d-eac81f1f6c8d" absoluteBounds="7, 1.375, 2, 1.3862939453125">
+    <classShape Id="a5d2474a-f72a-4411-8c83-8289797e16a3" absoluteBounds="2, 1.125, 2, 1.3862939453125">
       <DataClassMoniker Name="/EmployeesDataClassesDataContext/Employee" />
       <nestedChildShapes>
-        <elementListCompartment Id="3012cbfb-8f7a-494c-82eb-6f2eb7f65929" absoluteBounds="7.0150000000000006, 1.835, 1.9700000000000002, 0.8262939453125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+        <elementListCompartment Id="f785236b-1a41-4b87-8546-40a95843caff" absoluteBounds="2.0149999999999997, 1.585, 1.9700000000000002, 0.8262939453125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
+    <associationConnector edgePoints="[(5.5 : 1.84699625651042); (4 : 1.84699625651042)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/EmployeesDataClassesDataContext/Department/Department_Employee" />
+      <nodes>
+        <classShapeMoniker Id="dd602a46-f639-4fe9-a7fc-1a95776e3df5" />
+        <classShapeMoniker Id="a5d2474a-f72a-4411-8c83-8289797e16a3" />
+      </nodes>
+    </associationConnector>
   </nestedChildShapes>
 </ordesignerObjectsDiagram>

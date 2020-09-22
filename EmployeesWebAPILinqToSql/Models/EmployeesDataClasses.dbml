@@ -4,6 +4,7 @@
     <Type Name="Department">
       <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
       <Column Name="Name" Type="System.String" DbType="NChar(10)" CanBeNull="true" />
+      <Association Name="Department_Employee" Member="Employees" ThisKey="ID" OtherKey="departmentID" Type="Employee" />
     </Type>
   </Table>
   <Table Name="dbo.Employees" Member="Employees">
@@ -11,6 +12,7 @@
       <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
       <Column Name="Name" Type="System.String" DbType="NChar(100)" CanBeNull="true" />
       <Column Name="departmentID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="Department_Employee" Member="Department" ThisKey="departmentID" OtherKey="ID" Type="Department" IsForeignKey="true" />
     </Type>
   </Table>
 </Database>
